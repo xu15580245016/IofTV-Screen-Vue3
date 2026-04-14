@@ -47,7 +47,7 @@ const addressHandle = (item: any) => {
   return name;
 };
 const comName = computed(() => {
-  if (indexConfig.value.leftBottomSwiper) {
+  if (indexConfig.value.leftBottomSwiperr) {
     return SeamlessScroll;
   } else {
     return EmptyCom;

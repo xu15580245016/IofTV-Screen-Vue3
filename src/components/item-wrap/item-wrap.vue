@@ -3,7 +3,7 @@ import BorderBox13 from "@/components/datav/border-box-13";
 const props = withDefaults(
   defineProps<{
     // 标题
-    title: number | string;
+    titleText: number | string;
   }>(),
   {
     title: "",
@@ -13,13 +13,13 @@ const props = withDefaults(
 
 <template>
   <BorderBox13>
-    <div class="item_title" v-if="title !== ''">
+    <div class="item_title" v-if="titleText !== ''">
       <div class="zuo"></div>
-      <span class="title-inner"> &nbsp;&nbsp;{{ title }}&nbsp;&nbsp; </span>
+      <span class="title-inner"> &nbsp;&nbsp;{{ titleText }}&nbsp;&nbsp; </span>
       <div class="you"></div>
     </div>
     <div
-      :class="title !== '' ? 'item_title_content' : 'item_title_content_def'"
+      :class="titleText !== '' ? 'item_title_content' : 'item_title_content_def'"
     >
       <slot></slot></div
   ></BorderBox13>

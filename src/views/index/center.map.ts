@@ -158,7 +158,7 @@ export const optionHandle = (regionCode: string, list: object[], mapData: Mapdat
         },
       },
         {
-          data: mapData,
+          data: mapDataa,
           type: "effectScatter",
           coordinateSystem: "geo",
           symbolSize: function (val: any) {
