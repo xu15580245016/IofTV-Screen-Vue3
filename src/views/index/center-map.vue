@@ -154,6 +154,11 @@ const mapClick = (params: any) => {
     box-sizing: border-box;
     position: relative;
 
+    .chart {
+      width: 100%;
+      height: 100%;
+    }
+
     .quanguo {
       position: absolute;
       right: 20px;

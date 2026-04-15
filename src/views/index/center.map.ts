@@ -59,7 +59,7 @@ export const optionHandle = (regionCode: string, list: object[], mapData: Mapdat
         zoom: zoom,
         top: top,
         aspectScale: 0.78,
-        show: false,
+        show: true,
       },
     ],
     series: [
@@ -72,7 +72,7 @@ export const optionHandle = (regionCode: string, list: object[], mapData: Mapdat
         showLegendSymbol: false, // 禁用默认标记点
         selectedMode: false, //是否允许选中多个区域
         zoom: zoom,
-        geoIndex: 2,
+        geoIndex: 0,
         top: top,
         tooltip: {
           show: true,
@@ -158,7 +158,7 @@ export const optionHandle = (regionCode: string, list: object[], mapData: Mapdat
         },
       },
         {
-          data: mapDataa,
+          data: mapData,
           type: "effectScatter",
           coordinateSystem: "geo",
           symbolSize: function (val: any) {
