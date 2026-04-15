@@ -39,7 +39,9 @@ export const useSettingStore = defineStore('setting', () => {
     let settingIndexConfig: any = localStorage.getItem('loftv-indexConfig')
     if (settingIndexConfig) {
       settingIndexConfig = JSON.parse(settingIndexConfig)
-      setIndexConfig(settingIndexConfig)
+      // 合并配置，确保默认值存在
+      indexConfig.value = { ...indexConfig.value, ...settingIndexConfig }
+      localStorage.setItem('loftv-indexConfig', JSON.stringify(indexConfig.value))
     }
   }
   const setSettingData = () => {

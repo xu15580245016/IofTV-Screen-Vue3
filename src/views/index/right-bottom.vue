@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { rightBottom } from "@/api";
 import SeamlessScroll from "@/components/seamless-scroll";
-import { computed, onMounted, reactive } from "vue";
+import { computed, onMounted, reactive, watchEffect } from "vue";
 import { useSettingStore } from "@/stores";
 import { storeToRefs } from "pinia";
 import EmptyCom from "@/components/empty-com";
@@ -12,12 +12,24 @@ const { defaultOption, indexConfig } = storeToRefs(settingStore);
 const state = reactive<any>({
   list: [],
   defaultOption: {
-    ...defaultOption.value,
-    singleHeight: 252,
+    step: 4,
+    hover: true,
+    wheel: false,
+    openWatch: true,
+    direction: 1,
     limitScrollNum: 3,
-    // step:3
+    singleHeight: 252,
+    singleWidth: 0,
+    singleWaitTime: 3000
   },
   scroll: true,
+});
+
+// 使用 watchEffect 来确保 store 中的配置已加载后再合并
+watchEffect(() => {
+  if (defaultOption.value) {
+    state.defaultOption = { ...state.defaultOption, ...defaultOption.value, singleHeight: 252, limitScrollNum: 3 };
+  }
 });
 
 const getData = () => {
@@ -39,7 +51,7 @@ const getData = () => {
 };
 
 const comName = computed(() => {
-  if (indexConfig.value.rightBottomSwiper) {
+  if (indexConfig.value?.rightBottomSwiper !== false) {
     return SeamlessScroll;
   } else {
     return EmptyCom;
@@ -58,7 +70,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="right_bottom_wrap beautify-scroll-def" :class="{ 'overflow-y-auto': !indexConfig.rightBottomSwiper }">
+  <div class="right_bottom_wrap beautify-scroll-def" :class="{ 'overflow-y-auto': indexConfig.value?.rightBottomSwiper === false }">
     <component
       :is="comName"
       :list="state.list"
