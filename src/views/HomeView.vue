@@ -19,6 +19,7 @@ const wrapperStyle = {};
     height="1080"
     :delay="500"
     :fullScreen="false"
+    :autoScale="isScale"
     :boxStyle="{
       background: '#03050C',
       overflow: isScale ? 'hidden' : 'auto',

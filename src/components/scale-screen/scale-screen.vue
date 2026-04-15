@@ -165,8 +165,8 @@ const updateSize = () => {
   }
 };
 const clearScreenWrapperStyle = () => {
-  screenWrapper.value!.style.transform = "";
-  screenWrapper.value!.style.margin = "";
+  screenWrapper.value!.style.transform = "scale(1,1)";
+  screenWrapper.value!.style.margin = "0";
 };
 const autoScale = (scale: number) => {
   if (!props.autoScale) {
