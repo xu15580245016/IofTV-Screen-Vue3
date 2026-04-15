@@ -24,7 +24,6 @@ const wrapperStyle = {};
       overflow: isScale ? 'hidden' : 'auto',
     }"
     :wrapperStyle="wrapperStyle"
-    :autoScale="isScale"
   >
     <div class="content_wrap">
       <Headers />
